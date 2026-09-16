@@ -47,9 +47,9 @@ urlpatterns = [
     ),
 
     # React Frontend
-    re_path(
-        r"^(?!api/|admin/).*",
-        TemplateView.as_view(template_name="index.html"),
-        name="frontend",
-    ),
+   re_path(
+    r"^(?!api/|admin/|static/).*",
+    TemplateView.as_view(template_name="index.html"),
+    name="frontend",
+),
 ]
