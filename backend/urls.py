@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+from django.views.generic import TemplateView
 
 from api.views import (
     run_agent_api,
@@ -9,10 +10,12 @@ from api.views import (
     clear_history_api,
 )
 
-urlpatterns = [
 
+urlpatterns = [
+    # Django Admin
     path("admin/", admin.site.urls),
 
+    # API Endpoints
     path(
         "api/run-agent/",
         run_agent_api,
@@ -41,5 +44,12 @@ urlpatterns = [
         "api/history/clear/",
         clear_history_api,
         name="clear_history_api",
+    ),
+
+    # React Frontend
+    re_path(
+        r"^(?!api/|admin/).*",
+        TemplateView.as_view(template_name="index.html"),
+        name="frontend",
     ),
 ]

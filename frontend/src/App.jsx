@@ -44,9 +44,8 @@ import {
    API
 ========================================================= */
 
-const API_URL = "http://127.0.0.1:8000/api/run-agent/";
-const HISTORY_API_URL = "http://127.0.0.1:8000/api/history/";
-
+const API_URL = "/api/run-agent/";
+const HISTORY_API_URL = "/api/history/";
 
 /* =========================================================
    AGENTS
